@@ -13,7 +13,7 @@ $hostname = app(Hyn\Tenancy\Contracts\CurrentHostname::class);
 if ($hostname) {
     Route::domain($hostname->fqdn)->group(function () {
         Auth::routes([
-            'register' => false,
+            'register' => true,
             'verify'   => false
         ]);
         Route::post('/cambiar_contrasena', [UserController::class, 'cambiarContrasena'])->name('cambiar_contrasena');
